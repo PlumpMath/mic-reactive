@@ -1,6 +1,6 @@
 ### Audio-Reactive Suzanne
 
-My attempt at getting a blend4web scene to react to microphone (Web-audio) input.  Using [blend4web](http://www.blend4web.com/) and [Tonejs](http://tonejs.org/) via [Clojurescript](http://clojurescript.org/).
+My attempt at getting a WebGL scene to react to microphone (Web-audio) input.  Using [blend4web](http://www.blend4web.com/) and [Tonejs](http://tonejs.org/) via [Clojurescript](http://clojurescript.org/).
 
 Doesn't work yet, I'm just leaving it here for backup purposes.
 
