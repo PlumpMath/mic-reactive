@@ -2,7 +2,7 @@
 
 Talk into the microphone, make suzanne grow and shrink (and change hue)!  Using [Blend4web](http://www.blend4web.com/) and [Tonejs](http://tonejs.org/) via [Clojurescript](http://clojurescript.org/).
 
-[Try it out here](http://clojurescript-experiments.neocities.org/)
+[Try it out here](https://clojurescript-experiments.neocities.org/)
 
 **Note: probably works best on latest Chrome, FF -- make sure you have your mic enabled.**
 
