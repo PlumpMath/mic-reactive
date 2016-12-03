@@ -22,7 +22,6 @@ To get a more optimized, performant js.  It'll upload this ginomrous `main.out` 
 * `index.html`
 * `monkey.json`
 * `monkey.bin`
-* `monkey.json`
 * `uranium.js`
 * `uranium.js.mem`
 
