@@ -11,6 +11,7 @@
 (def transform (engine/load-b4w-module :transform))
 (def material (engine/load-b4w-module :material))
 (def rgba (engine/load-b4w-module :rgba))
+(def light (engine/load-b4w-module :lights))
 
 ;;Now tonejs stuff
 (def mic (new js/Tone.Microphone))
@@ -28,34 +29,57 @@
 ;;Open the mic to change audio-data
 (.open mic)
 
+;;Now initialize the mic
+(.start mic)
+
 (def actions
-  {:expand-shrink (fn [obj time]
+  {:expand-shrink (fn [obj lamp time]
                 (let [raw-audio (aclone (.analyse analyser))
                       audio {:min (apply min raw-audio)
                              :max (apply max raw-audio)
                              :avg (average raw-audio)}]
                  (do
-                  ;;Now initialize the mic
-                  (.start mic)
-
                   ;;Change scale of monkey head to audio data
                   (.set-scale transform obj
-                      (/ (:min audio) 90))
+                      (/ (:max audio) 90))
                   (.set-rotation-euler transform obj
-                         (* time 1.0)
-                         2
-                         (* time 0.3))
+                         0
+                         0
+                         (* time 1.0))
                   (.set-diffuse-color material obj
                               "Material"
                               (.from-values rgba
-                                (/ (:min audio) 25)
-                                (/ (:max audio) 20)
-                                (/ (:min audio) 25)
-                                1))
+                                (:max audio)
+                                (* (mod time 10)
+                                   (mod (:min audio) 256))
+                                (* (:avg audio) 10)
+                                0.2))
+
+                  (.set-light-color light lamp (.from-values rgba
+                                    (/ (:max audio) 255)
+                                    (/ (:min audio) 255)
+                                    (/ (:min audio) 255)
+                                    1))
+                   
+                  (.set-light-energy light lamp (* 0.0005
+                                                   (:min audio)))
+
+                  (.set-active scenes "Scene")
+                  (.log js/console (Math.round (/ (:max audio) 255)))
+
+                  (.set-environment-colors scenes 0.4
+                                           (.from-values rgba
+                                              (/ (:max audio) 128)
+                                              (/ (:min audio) 128)
+                                              (/ (:min audio) 128)
+                                              1))
+
                   (.set-diffuse-intensity material obj
                               "Material"
-                              (/ (:min audio) 255)))))})
+                              (- (:avg audio)
+                                 128)))))})
 
 (defn continuous-timeline-sensor [time]
-  (let [monkey     (.get-object-by-name scenes "Suzanne")]
-       ((:expand-shrink actions) monkey time)))
+  (let [monkey     (.get-object-by-name scenes "Suzanne")
+        lamp       (.get-object-by-name scenes "Lamp")]
+       ((:expand-shrink actions) monkey lamp time)))

@@ -38,6 +38,7 @@
     (reload :on-jsload 'mic-reactive.live/actions)
     (cljs)
     (uranium)
+    (target)
     (serve :port 8000)))
 
 (deftask deploy

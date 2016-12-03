@@ -17,7 +17,7 @@
             (clj->js [timeline-sensor])
             live/continuous-timeline-sensor);;<- I prefer naming this after the sensor/controls that creates it.
 
-        load-data (engine/enter-b4w-data "monkey.json"
+        load-data (engine/enter-b4w-data "monkey2.json"
                    (.getElementById js/document "container"))]
 
       (engine/init-b4w load-data sensor-manifold)))
