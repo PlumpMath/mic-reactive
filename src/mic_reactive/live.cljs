@@ -43,9 +43,9 @@
                   (.set-scale transform obj
                       (/ (:max audio) 90))
                   (.set-rotation-euler transform obj
-                         0
-                         0
-                         (* time 1.0))
+                                                   0
+                                                   0
+                                                   (* time 1.0))
                   (.set-diffuse-color material obj
                               "Material"
                               (.from-values rgba
@@ -60,18 +60,17 @@
                                     (/ (:min audio) 255)
                                     (/ (:min audio) 255)
                                     1))
-                   
-                  (.set-light-energy light lamp (* 0.0005
+
+                  (.set-light-energy light lamp (* 0.00005
                                                    (:min audio)))
 
                   (.set-active scenes "Scene")
-                  (.log js/console (Math.round (/ (:max audio) 255)))
 
-                  (.set-environment-colors scenes 0.4
+                  (.set-environment-colors scenes 0.5
                                            (.from-values rgba
-                                              (/ (:max audio) 128)
-                                              (/ (:min audio) 128)
-                                              (/ (:min audio) 128)
+                                              (/ (:max audio) 100)
+                                              (/ (:min audio) 100)
+                                              (/ (:min audio) 100)
                                               1))
 
                   (.set-diffuse-intensity material obj

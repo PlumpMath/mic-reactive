@@ -21,6 +21,7 @@ boot deploy
 To get a more optimized, performant js.  It'll upload this ginomrous `main.out` folder too -- don't worry, that's just for source-maps.  For websites, all you need is:
 * `index.html`
 * `monkey.json`
+* `main.js`
 * `monkey.bin`
 * `uranium.js`
 * `uranium.js.mem`
