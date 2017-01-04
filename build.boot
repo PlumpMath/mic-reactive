@@ -50,4 +50,4 @@
     (watch)
     (cljs :optimizations :advanced)
     (uranium)
-    (serve :port 8000)))
+    (target)))
