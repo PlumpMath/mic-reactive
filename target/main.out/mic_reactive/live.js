@@ -80,7 +80,7 @@ mic_reactive.live.continuous_timeline_sensor = (function mic_reactive$live$conti
 var monkey = mic_reactive.live.scenes.get_object_by_name("Suzanne");
 var lamp = mic_reactive.live.scenes.get_object_by_name("Lamp");
 var original_scene = new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$monkey,monkey,cljs.core.cst$kw$lamp,lamp], null);
-mic_reactive.live.m_container.resize((1200),(800),true);
+mic_reactive.live.m_container.resize((600),(400),true);
 
 mic_reactive.live.scenes.set_active("Scene");
 

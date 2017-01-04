@@ -15,7 +15,7 @@
 (def m-container (engine/load-b4w-module :container))
 
 (defn replicate-obj [obj-str n]
-  "Gets b4w to copy obj n times."
+  "Gets b4w to copy obj n times and adds it to current scene."
   (dotimes [m n]
       (when-not
         (.check-object-by-name scenes (str obj-str "-" m))
@@ -111,6 +111,6 @@
         lamp   (.get-object-by-name scenes "Lamp")
         original-scene {:monkey monkey :lamp lamp}]
 
-      (do (.resize m-container 1200 800 true)
+      (do (.resize m-container 600 400 true)
           (.set-active scenes "Scene")
           ((:expand-shrink actions) time original-scene))))

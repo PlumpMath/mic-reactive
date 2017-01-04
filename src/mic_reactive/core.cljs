@@ -21,8 +21,7 @@
         load-data (engine/enter-b4w-data "monkey2.json"
                    (.getElementById js/document "container"))
 
-        container (.getElementById js/document "container")
-        picture (.getElementById js/document "bbb")]
+        container (.getElementById js/document "container")]
 
       (do (engine/init-b4w load-data sensor-manifold)
-          (js/Maptastic container picture))))
+          (js/Maptastic container))))
