@@ -11,6 +11,7 @@
                   [adzerk/boot-reload "0.4.13" :scope "test"]
                   [cljsjs/blend4web "16.11-1"]
                   [cljsjs/tonejs "0.8.0-1"]
+                  [cljsjs/maptastic "0.0.0"]
                   [tailrecursion/boot-jetty "0.1.0"]
                   [com.cemerick/piggieback "0.2.1" :scope "test"]
                   [weasel "0.7.0" :scope "test"]])
@@ -49,4 +50,4 @@
     (watch)
     (cljs :optimizations :advanced)
     (uranium)
-    (target)))
+    (serve :port 8000)))
